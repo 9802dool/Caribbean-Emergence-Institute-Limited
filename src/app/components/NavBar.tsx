@@ -6,14 +6,14 @@ import Link from "next/link";
 export default function NavBar() {
   return (
     <header className="bg-[#0B1F3B] text-white">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2.5">
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/logo/logo.png"
             alt="Caribbean Emergence Institute Logo"
-            width={42}
-            height={42}
-            className="h-10 w-10 object-contain md:h-12 md:w-12"
+            width={64}
+            height={64}
+            className="h-14 w-14 object-contain md:h-16 md:w-16"
             priority
           />
           <span className="font-serif text-lg font-semibold">
