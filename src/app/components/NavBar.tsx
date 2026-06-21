@@ -9,11 +9,11 @@ export default function NavBar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2.5">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logo/logo.png"
+            src="/logo.jpg"
             alt="Caribbean Emergence Institute Logo"
-            width={64}
-            height={64}
-            className="h-14 w-14 object-contain md:h-16 md:w-16"
+            width={150}
+            height={150}
+            className="h-24 w-24 object-contain md:h-36 md:w-36"
             priority
           />
           <span className="font-serif text-lg font-semibold">
