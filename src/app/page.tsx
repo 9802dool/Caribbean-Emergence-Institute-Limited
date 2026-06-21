@@ -1,65 +1,132 @@
-import Image from "next/image";
+import Hero from "./components/Hero";
+import FeatureCards from "./components/FeatureCards";
+import { CourseCard } from "./components/CourseCard";
+import { ServiceCard } from "./components/ServiceCard";
 
 export default function Home() {
+  const homeCourses = [
+    {
+      title: "Nonprofit Leadership, Governance & Governing Protocols",
+      desc: "Unveil the intricate process of decision-making and its implementation within participatory, consensus-oriented, and accountable frameworks.",
+      modules: [
+        "Board Roles and Responsibilities",
+        "Compliance and Fiduciary Responsibilities",
+        "Current Leadership Paradigms",
+      ],
+    },
+    {
+      title: "Social Impact Strategy for NGOs",
+      desc: "Develop skills in utilizing business strategies for social impact and change, aligning values with SDGs and Net Zero themes.",
+      modules: [
+        "Impact strategy design",
+        "Funding and investment approaches",
+        "Aligning organisational values with development themes",
+      ],
+    },
+    {
+      title: "Social Business Model for Social Innovation",
+      desc: "Identify and harness opportunities in social entrepreneurship using the Business Model Canvas and social business planning.",
+      modules: [
+        "Opportunity identification",
+        "Business Model Canvas",
+        "Social Business Plan development",
+      ],
+    },
+  ];
+
+  const homeServices = [
+    {
+      title: "Baseline Assessment & Organisational Diagnosis",
+      features: [
+        "Tailored to the need of individual organisations",
+        "Thorough diagnosis of organisational structure",
+      ],
+      benefits: [
+        "Greater opportunity for in-depth analysis",
+        "Appropriate tools for implementing changes",
+      ],
+    },
+    {
+      title: "Coaching & Board Development",
+      features: [
+        "Subject level experts and sector specialists",
+        "Board development and good governance coaching",
+      ],
+      benefits: [
+        "Years of practitioner experience",
+        "Improved credibility and sustainability",
+      ],
+    },
+    {
+      title: "Legitimization & Legal Compliance",
+      features: [
+        "Incorporation, Articles, Bylaws and/or Constitution",
+        "Legal registration and compliance processes",
+      ],
+      benefits: [
+        "Engage in lawful operations",
+        "Stakeholder confidence and trust in the industry",
+      ],
+    },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main>
+      <Hero />
+      <FeatureCards />
+
+      <section className="mx-auto grid max-w-6xl items-start gap-10 px-6 py-12 md:grid-cols-2">
+        <div>
+          <h2 className="mb-3 font-serif text-2xl text-[#0B1F3B]">
+            Why an Institute?
+          </h2>
+          <p className="mb-3 text-sm text-gray-800">
+            At the Caribbean Emergence Institute, we are more than an
+            institution; we are a dynamic hub for research and learning,
+            equipping leaders of Civil Society Organisations with essential
+            tools and skills.
+          </p>
+          <p className="text-sm text-gray-800">
+            Purpose is the driving force behind high performance and the
+            catalyst for visionary ideas and innovation, transforming fragments
+            into cohesive movements.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="rounded-xl border border-[#E2E2E2] bg-white p-5 shadow-sm">
+          <h3 className="mb-2 text-lg font-semibold text-[#0B1F3B]">
+            Roots in the Rose Foundation
+          </h3>
+          <p className="text-sm text-gray-800">
+            In its thirty-two years, the Rose Foundation has navigated rapid
+            currents of change in learning, technology, and socio-cultural
+            paradigms, envisioning the Caribbean Emergence Institute as a
+            beacon of knowledge for robust learning and adaptive knowledge
+            transfer.
+          </p>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-12">
+        <h2 className="mb-4 font-serif text-2xl text-[#0B1F3B]">
+          Featured Programs
+        </h2>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {homeCourses.map((course) => (
+            <CourseCard key={course.title} {...course} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-12">
+        <h2 className="mb-4 font-serif text-2xl text-[#0B1F3B]">
+          Key Services for Civil Society
+        </h2>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {homeServices.map((service) => (
+            <ServiceCard key={service.title} {...service} />
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
