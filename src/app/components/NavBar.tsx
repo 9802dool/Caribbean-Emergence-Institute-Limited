@@ -21,9 +21,10 @@ export default function NavBar() {
           </span>
         </Link>
 
-        <nav className="flex gap-4 text-sm">
+        <nav className="flex flex-wrap justify-end gap-4 text-sm">
           <Link href="/programs">Programs</Link>
           <Link href="/services">Services</Link>
+          <Link href="/diagnostic">Diagnostic</Link>
           <Link href="/insights">Insights</Link>
           <Link href="/knowledge">Knowledge Hub</Link>
           <Link href="/fellowship">Fellowship</Link>
