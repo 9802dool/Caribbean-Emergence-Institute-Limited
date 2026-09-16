@@ -1,6 +1,5 @@
 import "./globals.css";
-import Footer from "./components/Footer";
-import NavBar from "./components/NavBar";
+import SiteChrome from "./components/SiteChrome";
 
 export const metadata = {
   title: "Caribbean Emergence Institute Limited",
@@ -14,10 +13,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#F7F5F0] text-[#222222]">
-        <NavBar />
-        {children}
-        <Footer />
+      <body className="bg-cei-light text-cei-darkText">
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
