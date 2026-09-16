@@ -1,0 +1,45 @@
+---
+description: Core brand, positioning, content, and operational standards for the CEI website
+alwaysApply: true
+---
+
+# CEI Website Standards
+
+## Purpose and Positioning
+
+- Build an institutional, conversion-focused website for the Caribbean Emergence Institute (CEI).
+- Position CEI as establishing the legal, governance, financial, and operational foundations of businesses, NPOs, and directors.
+- Never present CEI as merely a filing service.
+
+## Technical Standards
+
+- Use Next.js 14+ with the App Router, TypeScript, and Tailwind CSS.
+- Use Lucide React for icons and Framer Motion for animations.
+- Preserve accessibility, responsive design, and clear conversion paths.
+
+## Brand Palette
+
+- Primary navy: `#0A2342`
+- Teal: `#147266`
+- Warm terracotta/copper: `#C85A44`
+- Gold accent: `#D4AF37`
+- Light background: `#F8FAFC`
+
+## Pricing Disclaimer
+
+Always display this disclaimer wherever pricing or professional fees appear:
+
+> Prices shown are professional fees. Government filing fees, penalties, printing, courier charges, external professional fees and complex legal or accounting work are separate unless expressly included in your written quotation.
+
+## Operational Details
+
+- Email: `caribbeanemergencei@gmail.com`
+- Diagnostic bookings: Thursdays, 10:00 AM–3:00 PM, using 30-minute slots with 15-minute buffers.
+- SME clinic: Wednesdays, 4:00 PM–5:00 PM.
+- NPO clinic: Wednesdays, 6:00 PM–7:00 PM.
+
+## People and Partners
+
+- Team: Dr. Marcia Mc Clashie Belgrove, Anisa Oliviel, and Lorraine Villaroel.
+- Strategic partners: The Rose Foundation and Grassroots Chamber of Commerce.
+- Preserve the spelling and titles above unless the user explicitly requests a correction.
