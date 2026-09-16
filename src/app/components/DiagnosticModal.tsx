@@ -1,7 +1,7 @@
 "use client";
 
-import { FormEvent, useEffect } from "react";
-import { Calendar, Clock, Mail, X } from "lucide-react";
+import { FormEvent, useEffect, useState } from "react";
+import { Calendar, Clock, X } from "lucide-react";
 
 import { SITE_CONFIG } from "@/lib/site";
 
@@ -14,6 +14,15 @@ export default function DiagnosticModal({
   isOpen,
   onClose,
 }: DiagnosticModalProps) {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    entityType: "Unregistered Business",
+    urgency: "Immediate (Filing deadline or penalty risk)",
+    description: "",
+  });
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -35,16 +44,19 @@ export default function DiagnosticModal({
 
   const requestBooking = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const subject = encodeURIComponent("Thursday diagnostic booking request");
+    const subject = encodeURIComponent(
+      `CEI Diagnostic Booking Request - ${formData.name}`,
+    );
     const body = encodeURIComponent(
       [
-        `Name: ${data.get("name")}`,
-        `Email: ${data.get("email")}`,
-        `Organisation: ${data.get("organisation") || "Not provided"}`,
-        `Preferred Thursday: ${data.get("preferredDate") || "Flexible"}`,
+        `Name: ${formData.name}`,
+        `Email: ${formData.email}`,
+        `Phone: ${formData.phone}`,
+        `Entity Type: ${formData.entityType}`,
+        `Urgency: ${formData.urgency}`,
         "",
-        `Primary concern: ${data.get("concern")}`,
+        "Details:",
+        formData.description,
       ].join("\n"),
     );
 
@@ -74,7 +86,7 @@ export default function DiagnosticModal({
               id="diagnostic-title"
               className="mt-1 font-serif text-2xl font-bold text-cei-navy"
             >
-              Request a Thursday Diagnostic
+              Book a Diagnostic Session
             </h2>
           </div>
           <button
@@ -103,59 +115,114 @@ export default function DiagnosticModal({
           Your requested time is confirmed by email.
         </p>
 
-        <form onSubmit={requestBooking} className="mt-6 space-y-4">
+        <form onSubmit={requestBooking} className="mt-6 space-y-4 text-sm">
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="text-sm font-medium text-cei-navy">
-              Name
+              Full Name
               <input
                 required
-                name="name"
+                type="text"
                 autoComplete="name"
-                className="mt-1.5 w-full rounded-md border border-slate-300 px-3 py-2.5 text-cei-darkText outline-none transition focus:border-cei-teal focus:ring-2 focus:ring-cei-teal/20"
+                value={formData.name}
+                onChange={(event) =>
+                  setFormData((current) => ({
+                    ...current,
+                    name: event.target.value,
+                  }))
+                }
+                className="mt-1.5 w-full rounded-md border border-slate-300 bg-slate-50 px-3 py-2.5 text-cei-darkText outline-none transition focus:border-cei-teal focus:bg-white focus:ring-2 focus:ring-cei-teal/20"
               />
             </label>
             <label className="text-sm font-medium text-cei-navy">
-              Email
+              Email Address
               <input
                 required
                 type="email"
-                name="email"
                 autoComplete="email"
-                className="mt-1.5 w-full rounded-md border border-slate-300 px-3 py-2.5 text-cei-darkText outline-none transition focus:border-cei-teal focus:ring-2 focus:ring-cei-teal/20"
+                value={formData.email}
+                onChange={(event) =>
+                  setFormData((current) => ({
+                    ...current,
+                    email: event.target.value,
+                  }))
+                }
+                className="mt-1.5 w-full rounded-md border border-slate-300 bg-slate-50 px-3 py-2.5 text-cei-darkText outline-none transition focus:border-cei-teal focus:bg-white focus:ring-2 focus:ring-cei-teal/20"
               />
             </label>
           </div>
           <label className="block text-sm font-medium text-cei-navy">
-            Organisation
+            Phone Number
             <input
-              name="organisation"
-              autoComplete="organization"
-              className="mt-1.5 w-full rounded-md border border-slate-300 px-3 py-2.5 text-cei-darkText outline-none transition focus:border-cei-teal focus:ring-2 focus:ring-cei-teal/20"
+              required
+              type="tel"
+              autoComplete="tel"
+              value={formData.phone}
+              onChange={(event) =>
+                setFormData((current) => ({
+                  ...current,
+                  phone: event.target.value,
+                }))
+              }
+              className="mt-1.5 w-full rounded-md border border-slate-300 bg-slate-50 px-3 py-2.5 text-cei-darkText outline-none transition focus:border-cei-teal focus:bg-white focus:ring-2 focus:ring-cei-teal/20"
             />
           </label>
           <label className="block text-sm font-medium text-cei-navy">
-            Preferred Thursday
-            <input
-              type="date"
-              name="preferredDate"
-              className="mt-1.5 w-full rounded-md border border-slate-300 px-3 py-2.5 text-cei-darkText outline-none transition focus:border-cei-teal focus:ring-2 focus:ring-cei-teal/20"
-            />
+            Entity Type
+            <select
+              value={formData.entityType}
+              onChange={(event) =>
+                setFormData((current) => ({
+                  ...current,
+                  entityType: event.target.value,
+                }))
+              }
+              className="mt-1.5 w-full rounded-md border border-slate-300 bg-slate-50 px-3 py-2.5 text-cei-darkText outline-none transition focus:border-cei-teal focus:ring-2 focus:ring-cei-teal/20"
+            >
+              <option>Unregistered Business</option>
+              <option>Existing LLC / Company</option>
+              <option>Unregistered NPO</option>
+              <option>Registered NPO</option>
+              <option>Director / Shareholder</option>
+              <option>Corporate Sponsor</option>
+            </select>
           </label>
           <label className="block text-sm font-medium text-cei-navy">
-            What would you like help with?
+            Urgency Level
+            <select
+              value={formData.urgency}
+              onChange={(event) =>
+                setFormData((current) => ({
+                  ...current,
+                  urgency: event.target.value,
+                }))
+              }
+              className="mt-1.5 w-full rounded-md border border-slate-300 bg-slate-50 px-3 py-2.5 text-cei-darkText outline-none transition focus:border-cei-teal focus:ring-2 focus:ring-cei-teal/20"
+            >
+              <option>Immediate (Filing deadline or penalty risk)</option>
+              <option>Within 1-2 weeks</option>
+              <option>General enquiry / Planning</option>
+            </select>
+          </label>
+          <label className="block text-sm font-medium text-cei-navy">
+            Brief Description of Need
             <textarea
               required
-              name="concern"
-              rows={4}
-              className="mt-1.5 w-full rounded-md border border-slate-300 px-3 py-2.5 text-cei-darkText outline-none transition focus:border-cei-teal focus:ring-2 focus:ring-cei-teal/20"
+              rows={3}
+              value={formData.description}
+              onChange={(event) =>
+                setFormData((current) => ({
+                  ...current,
+                  description: event.target.value,
+                }))
+              }
+              className="mt-1.5 w-full rounded-md border border-slate-300 bg-slate-50 px-3 py-2.5 text-cei-darkText outline-none transition focus:border-cei-teal focus:bg-white focus:ring-2 focus:ring-cei-teal/20"
             />
           </label>
           <button
             type="submit"
-            className="flex w-full items-center justify-center gap-2 rounded-md bg-cei-terracotta px-6 py-3 font-semibold text-white transition hover:bg-cei-terracotta/90"
+            className="w-full rounded-md bg-cei-terracotta px-6 py-3 font-bold text-white transition hover:bg-cei-terracotta/90"
           >
-            <Mail size={17} aria-hidden="true" />
-            Send Booking Request
+            Submit &amp; Request Diagnostic Slot
           </button>
         </form>
       </section>
