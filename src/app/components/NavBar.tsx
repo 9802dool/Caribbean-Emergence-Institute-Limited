@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -49,9 +50,14 @@ export default function NavBar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between gap-4">
           <Link href="/" className="flex min-w-0 items-center gap-3" onClick={followLink("/")}>
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-cei-gold text-sm font-bold text-cei-navy">
-              CEI
-            </div>
+            <Image
+              src="/cei-logo.jpeg"
+              alt=""
+              width={1199}
+              height={793}
+              priority
+              className="h-12 w-auto shrink-0 rounded-md bg-white object-contain sm:h-14"
+            />
             <div className="min-w-0">
               <span className="block truncate font-serif text-sm font-bold leading-tight tracking-wide sm:text-base">
                 Caribbean Emergence Institute
