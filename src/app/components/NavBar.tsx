@@ -51,12 +51,12 @@ export default function NavBar() {
         <div className="flex h-20 items-center justify-between gap-4">
           <Link href="/" className="flex min-w-0 items-center gap-3" onClick={followLink("/")}>
             <Image
-              src="/cei-logo.jpeg"
+              src="/cei-logo.png"
               alt=""
               width={1199}
               height={793}
               priority
-              className="h-12 w-auto shrink-0 rounded-md bg-white object-contain sm:h-14"
+              className="h-12 w-auto shrink-0 object-contain sm:h-14"
             />
             <div className="min-w-0">
               <span className="block truncate font-serif text-sm font-bold leading-tight tracking-wide sm:text-base">
