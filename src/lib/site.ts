@@ -112,10 +112,10 @@ export type NavItem = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "Programs", href: "/programs" },
-  { label: "Services", href: "/services" },
-  { label: "Insights", href: "/insights" },
-  { label: "Knowledge", href: "/knowledge" },
-  { label: "Fellowship", href: "/fellowship" },
+  { label: "Home", href: "/" },
+  { label: "About CEI", href: "/about" },
+  { label: "Our Centres", href: "/centres" },
+  { label: "Our Leadership", href: "/leadership" },
+  { label: "Partner With Us", href: "/partner" },
   { label: "Contact", href: "/contact" },
 ];

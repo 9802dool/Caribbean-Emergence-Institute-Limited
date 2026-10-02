@@ -35,7 +35,7 @@ export default function SiteChrome({
 
   return (
     <DiagnosticContext.Provider value={contextValue}>
-      <NavBar onOpenDiagnostic={contextValue.openDiagnostic} />
+      <NavBar />
       {children}
       <Footer />
       <DiagnosticModal

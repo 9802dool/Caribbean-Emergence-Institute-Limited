@@ -1,238 +1,195 @@
-"use client";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
-import {
-  ArrowRight,
-  BookOpen,
-  Building,
-  CheckCircle2,
-  ShieldCheck,
-  Users,
-} from "lucide-react";
-
-import { useDiagnostic } from "./components/SiteChrome";
-import {
-  BUSINESS_FOUNDATION_PACKAGES,
-  SITE_CONFIG,
-} from "@/lib/site";
-
-const pathways = [
-  {
-    title: "Unregistered Business",
-    need: "Establish a company properly",
-    cta: "Start My Business Foundation",
-    icon: Building,
-  },
-  {
-    title: "Existing Company",
-    need: "Resolve annual, ownership or governance gaps",
-    cta: "Complete a Compliance Check",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Unregistered NPO",
-    need: "Understand registration and governance requirements",
-    cta: "Attend the NPO Clinic",
-    icon: BookOpen,
-  },
-  {
-    title: "Registered NPO",
-    need: "File returns or reset compliance",
-    cta: "Book an NPO Diagnostic",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Director / Shareholder",
-    need: "Understand responsibilities, ownership and protection",
-    cta: "View Director Services",
-    icon: Users,
-  },
-  {
-    title: "Corporate / CSR Team",
-    need: "Strengthen funded NPOs or social partners",
-    cta: "Request Institutional Consultation",
-    icon: Building,
-  },
-] as const;
+import CentresExplorer from "./components/CentresExplorer";
+import EnquiryForm from "./components/EnquiryForm";
+import FounderLegacy from "./components/FounderLegacy";
+import { BOARD, INSTITUTION } from "@/lib/institution";
 
 export default function Home() {
-  const { openDiagnostic } = useDiagnostic();
-
   return (
-    <main className="flex min-h-screen flex-col bg-cei-light font-sans text-cei-darkText">
-      <section className="relative overflow-hidden bg-cei-navy px-4 py-20 text-white sm:px-6 lg:px-8">
-        <div className="relative z-10 mx-auto max-w-5xl text-center">
-          <span className="mb-4 inline-block rounded-full border border-cei-teal bg-cei-teal/30 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cei-gold">
-            Caribbean Governance, Compliance &amp; Growth
-          </span>
-          <h1 className="mb-6 font-serif text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Build it properly. Govern it responsibly. Grow it sustainably.
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-lg font-light text-gray-300 sm:text-xl">
-            CEI helps Caribbean businesses, NPOs, directors and institutions
-            establish sound legal, governance, financial and operational
-            foundations—from registration and statutory compliance to Board
-            effectiveness, sustainability and talent development.
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <button
-              type="button"
-              onClick={openDiagnostic}
-              className="rounded-md bg-cei-terracotta px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:bg-cei-terracotta/90"
-            >
-              Book a Diagnostic
-            </button>
-            <a
-              href="#pathways"
-              className="rounded-md border border-white/30 bg-transparent px-8 py-4 text-base font-semibold text-white transition-all hover:border-white"
-            >
-              Find the Right Service
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section id="pathways" className="mx-auto w-full max-w-7xl scroll-mt-24 px-4 py-16">
-        <div className="mb-12 text-center">
-          <h2 className="font-serif text-3xl font-bold text-cei-navy">
-            Choose Your Pathway
-          </h2>
-          <p className="mt-2 text-gray-600">
-            Select your background to see recommended solutions.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {pathways.map((pathway) => {
-            const Icon = pathway.icon;
-            return (
-              <article
-                key={pathway.title}
-                className="flex flex-col justify-between rounded-lg border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md"
+    <main className="bg-cei-light text-cei-darkText">
+      <section className="relative overflow-hidden border-b border-white/10 bg-cei-navy py-24 text-white lg:py-32">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px]" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="mb-4 inline-block rounded-full border border-cei-gold/30 bg-cei-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cei-gold">
+              {INSTITUTION.eyebrow}
+            </p>
+            <h1 className="mb-6 font-serif text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+              {INSTITUTION.headline}
+            </h1>
+            <p className="mb-8 text-lg leading-relaxed text-slate-300 sm:text-xl">
+              {INSTITUTION.summary}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/centres"
+                className="inline-flex items-center gap-2 rounded-lg bg-cei-gold px-6 py-3.5 font-bold text-cei-navy transition hover:bg-cei-gold/90"
               >
-                <div>
-                  <Icon className="mb-3 h-8 w-8 text-cei-teal" aria-hidden="true" />
-                  <h3 className="mb-1 text-lg font-bold text-cei-navy">
-                    {pathway.title}
-                  </h3>
-                  <p className="mb-4 text-sm text-gray-600">{pathway.need}</p>
-                </div>
-                <button
-                  type="button"
-                  onClick={openDiagnostic}
-                  className="flex items-center gap-1 text-left text-sm font-semibold text-cei-terracotta transition-all hover:gap-2"
-                >
-                  {pathway.cta}
-                  <ArrowRight size={16} aria-hidden="true" />
-                </button>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="border-y border-slate-200 bg-slate-100 px-4 py-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-10 max-w-3xl">
-            <span className="text-sm font-bold uppercase tracking-wider text-cei-teal">
-              Stage-by-Stage Support
-            </span>
-            <h2 className="mt-1 font-serif text-3xl font-bold text-cei-navy">
-              From Registration to Readiness
-            </h2>
-            <p className="mt-2 font-medium text-gray-600">
-              We do not simply register your company. We help establish the
-              legal, governance and financial foundations needed to operate it
-              properly.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {BUSINESS_FOUNDATION_PACKAGES.map((pkg) => {
-              const featured = "featured" in pkg && pkg.featured;
-              return (
-                <article
-                  key={pkg.title}
-                  className={`rounded-lg border bg-white p-6 ${
-                    featured
-                      ? "relative border-cei-gold shadow-md"
-                      : "border-slate-200"
-                  }`}
-                >
-                  {featured ? (
-                    <span className="absolute -top-3 right-4 rounded bg-cei-gold px-2 py-0.5 text-xs font-bold uppercase text-cei-navy">
-                      Best Value
-                    </span>
-                  ) : null}
-                  <p className="mb-1 text-xs font-bold uppercase text-cei-teal">
-                    {pkg.stage === "Bundle" ? "Complete Package" : `Stage ${pkg.stage}`}
-                  </p>
-                  <h3 className="mb-2 text-lg font-bold text-cei-navy">
-                    {pkg.title}
-                  </h3>
-                  <p className="mb-3 text-2xl font-bold text-cei-terracotta">
-                    {pkg.price}
-                  </p>
-                  <p className="text-sm text-gray-600">{pkg.description}</p>
-                </article>
-              );
-            })}
-          </div>
-
-          <p className="mt-6 max-w-4xl text-xs italic text-gray-500">
-            Note: {SITE_CONFIG.disclaimer}
-          </p>
-        </div>
-      </section>
-
-      <section className="mx-auto w-full max-w-7xl px-4 py-16">
-        <div className="flex flex-col items-center justify-between gap-8 rounded-2xl bg-cei-navy p-8 text-white shadow-xl md:p-12 lg:flex-row">
-          <div>
-            <span className="text-sm font-bold uppercase tracking-wider text-cei-gold">
-              Live &amp; Action-Oriented
-            </span>
-            <h2 className="mt-1 font-serif text-3xl font-bold">
-              Weekly Governance &amp; Compliance Clinics
-            </h2>
-            <p className="mt-2 max-w-2xl text-gray-300">
-              Don&apos;t wait weeks for answers. Join our recurring weekly
-              sessions or request an individual Thursday diagnostic session.
-            </p>
-            <div className="mt-6 space-y-2">
-              {SITE_CONFIG.weeklyClinics.map((clinic) => (
-                <p
-                  key={clinic.title}
-                  className="flex items-start gap-2 text-sm text-cei-gold"
-                >
-                  <CheckCircle2
-                    size={16}
-                    className="mt-0.5 shrink-0"
-                    aria-hidden="true"
-                  />
-                  <span>
-                    <strong>{clinic.title}:</strong> {clinic.day}, {clinic.time}
-                  </span>
-                </p>
-              ))}
+                Explore Our Centres
+                <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+              <Link
+                href="/partner"
+                className="rounded-lg border border-white/20 bg-white/5 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10"
+              >
+                Partner With CEI
+              </Link>
+              <Link
+                href="/contact"
+                className="rounded-lg border border-white/20 px-6 py-3.5 font-semibold text-slate-200 transition hover:bg-white/5"
+              >
+                Book a Consultation
+              </Link>
             </div>
           </div>
-          <aside className="w-full rounded-xl border border-white/20 bg-white/10 p-6 text-center lg:w-auto lg:min-w-72">
-            <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-cei-gold">
-              Diagnostic Availability
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white py-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+          <div className="lg:col-span-7">
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider text-cei-terracotta">
+              About CEI
             </p>
-            <p className="mb-1 text-2xl font-bold">
-              {SITE_CONFIG.diagnosticAvailability.days}
+            <h2 className="mb-6 font-serif text-3xl font-bold text-cei-navy sm:text-4xl">
+              Knowledge in Service of Caribbean Progress
+            </h2>
+            <p className="mb-4 text-lg leading-relaxed text-slate-600">
+              {INSTITUTION.aboutLead}
             </p>
-            <p className="mb-4 text-sm text-gray-300">
-              {SITE_CONFIG.diagnosticAvailability.timeWindow} (
-              {SITE_CONFIG.diagnosticAvailability.durationMinutes} mins)
-            </p>
-            <button
-              type="button"
-              onClick={openDiagnostic}
-              className="w-full rounded bg-cei-gold px-6 py-3 font-bold text-cei-navy transition-all hover:bg-cei-gold/90"
+            <p className="mb-6 leading-relaxed text-slate-600">{INSTITUTION.aboutBody}</p>
+            <blockquote className="mb-6 border-l-4 border-cei-gold bg-slate-50 p-4 text-slate-700">
+              {INSTITUTION.centresStatement}
+            </blockquote>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 font-semibold text-cei-navy hover:text-cei-teal"
             >
-              Book Thursday Diagnostic
-            </button>
+              Vision, mission and values
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+
+          <aside className="rounded-2xl bg-cei-navy p-8 text-white shadow-xl lg:col-span-5">
+            <h3 className="mb-6 border-b border-white/10 pb-3 font-serif text-xl font-bold text-cei-gold">
+              Institutional Foundation
+            </h3>
+            <div className="mb-6">
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Vision</p>
+              <p className="mt-1 font-medium text-slate-200">{INSTITUTION.vision}</p>
+            </div>
+            <div className="mb-6">
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Mission</p>
+              <p className="mt-1 text-sm text-slate-200">{INSTITUTION.mission}</p>
+            </div>
+            <div className="mb-6">
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Business philosophy
+              </p>
+              <p className="mt-1 text-lg font-semibold text-cei-gold">
+                {INSTITUTION.philosophy}
+              </p>
+            </div>
+            <div>
+              <p className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                Core values
+              </p>
+              <ul className="flex flex-wrap gap-2">
+                {INSTITUTION.values.map((value) => (
+                  <li
+                    key={value}
+                    className="rounded border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-slate-200"
+                  >
+                    {value}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </aside>
+        </div>
+      </section>
+
+      <section className="bg-slate-100 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider text-cei-terracotta">
+              Specialised Expertise
+            </p>
+            <h2 className="mb-4 font-serif text-3xl font-bold text-cei-navy sm:text-4xl">
+              Our Five Centres
+            </h2>
+            <p className="text-slate-600">
+              CEI delivers its work through five specialised Centres. Each Centre
+              brings together knowledge, professional expertise, partnerships and
+              practical solutions to address important institutional and societal
+              needs.
+            </p>
+          </div>
+          <CentresExplorer />
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider text-cei-terracotta">
+              Governance &amp; Vision
+            </p>
+            <h2 className="font-serif text-3xl font-bold text-cei-navy sm:text-4xl">
+              Leadership, Service and Legacy
+            </h2>
+          </div>
+          <FounderLegacy headingLevel="h3" />
+          <div className="mb-8 mt-16 flex items-end justify-between gap-4 border-b border-slate-200 pb-3">
+            <h3 className="font-serif text-2xl font-bold text-cei-navy">Board of Directors</h3>
+            <Link href="/leadership" className="text-sm font-semibold text-cei-teal hover:underline">
+              View leadership
+            </Link>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            {BOARD.map((leader) => (
+              <article key={leader.name} className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+                <h4 className="text-xl font-bold text-cei-navy">{leader.name}</h4>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-cei-terracotta">
+                  {leader.role}
+                </p>
+                <p className="text-sm leading-relaxed text-slate-600">{leader.summary}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cei-navy py-20 text-white">
+        <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <div>
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider text-cei-gold">
+              Collaboration
+            </p>
+            <h2 className="mb-6 font-serif text-3xl font-bold sm:text-4xl">
+              Work With the Caribbean Emergence Institute
+            </h2>
+            <p className="mb-8 leading-relaxed text-slate-300">{INSTITUTION.partnershipIntro}</p>
+            <h3 className="mb-4 text-lg font-semibold text-cei-gold">Partnership pathways</h3>
+            <ul className="space-y-3">
+              {INSTITUTION.partnershipPathways.map((item) => (
+                <li key={item} className="flex items-center gap-3 text-sm text-slate-200">
+                  <CheckCircle2 size={18} className="shrink-0 text-cei-gold" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/partner"
+              className="mt-8 inline-flex items-center gap-2 font-semibold text-cei-gold hover:underline"
+            >
+              Partnership pathways
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+          <EnquiryForm />
         </div>
       </section>
     </main>
