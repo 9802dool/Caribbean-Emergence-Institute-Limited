@@ -53,8 +53,8 @@ export default function NavBar() {
             <Image
               src="/cei-logo.png"
               alt=""
-              width={1219}
-              height={813}
+              width={1223}
+              height={817}
               priority
               className="h-12 w-auto shrink-0 object-contain sm:h-14"
             />
