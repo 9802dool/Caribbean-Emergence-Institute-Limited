@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   name: "Caribbean Emergence Institute",
   shortName: "CEI",
-  contactEmail: "caribbeanemergencei@gmail.com",
+  contactEmail: "contact@caribbeanemergence.com",
   disclaimer:
     "Prices shown are professional fees. Government filing fees, penalties, printing, courier charges, external professional fees and complex legal or accounting work are separate unless expressly included in your written quotation.",
   diagnosticAvailability: {
