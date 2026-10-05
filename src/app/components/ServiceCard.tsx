@@ -12,11 +12,11 @@ export function ServiceCard({
       <h3 className="mb-3 text-xl font-semibold text-[#0B1F3B]">{title}</h3>
 
       <div className="mb-4">
-        <h4 className="mb-1 text-sm font-semibold text-[#C89B3C]">Features</h4>
+        <h4 className="mb-1 text-sm font-semibold text-[#00A88F]">Features</h4>
         <ul className="space-y-1">
           {features.map((f, i) => (
             <li key={i} className="flex items-start text-sm">
-              <span className="mr-2 text-[#C89B3C]">•</span>
+              <span className="mr-2 text-[#00A88F]">•</span>
               {f}
             </li>
           ))}

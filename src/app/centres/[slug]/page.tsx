@@ -44,7 +44,7 @@ export default async function CentrePage({ params }: CentrePageProps) {
           className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20"
           style={{ borderTop: `6px solid ${centre.accent.secondary}` }}
         >
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-cei-gold">
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-[#00A88F]">
             <Link href="/centres" className="hover:underline">
               Our Centres
             </Link>

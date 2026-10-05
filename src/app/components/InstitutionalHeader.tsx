@@ -10,7 +10,7 @@ export default function InstitutionalHeader({
   return (
     <section className="border-b border-white/10 bg-cei-navy text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-cei-gold">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#00A88F]">
           {eyebrow}
         </p>
         <h1 className="max-w-3xl font-serif text-4xl font-bold tracking-tight sm:text-5xl">

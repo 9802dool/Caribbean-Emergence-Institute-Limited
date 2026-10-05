@@ -15,7 +15,7 @@ export default function Footer() {
             Dedicated to advancing the knowledge and professional competence of
             Caribbean society.
           </p>
-          <p className="text-xs font-semibold text-cei-gold">
+          <p className="text-xs font-semibold text-[#00A88F]">
             Service for the good of all.
           </p>
         </div>
@@ -25,7 +25,7 @@ export default function Footer() {
           <ul className="space-y-2 text-xs">
             {CENTRES.map((centre) => (
               <li key={centre.slug}>
-                <Link href={`/centres/${centre.slug}`} className="hover:text-cei-gold">
+                <Link href={`/centres/${centre.slug}`} className="hover:text-[#00A88F]">
                   {centre.shortTitle}
                 </Link>
               </li>
@@ -37,22 +37,22 @@ export default function Footer() {
           <p className="mb-3 font-bold text-white">Quick Links</p>
           <ul className="space-y-2 text-xs">
             <li>
-              <Link href="/about" className="hover:text-cei-gold">
+              <Link href="/about" className="hover:text-[#00A88F]">
                 About CEI
               </Link>
             </li>
             <li>
-              <Link href="/leadership" className="hover:text-cei-gold">
+              <Link href="/leadership" className="hover:text-[#00A88F]">
                 Leadership &amp; Founder Legacy
               </Link>
             </li>
             <li>
-              <Link href="/partner" className="hover:text-cei-gold">
+              <Link href="/partner" className="hover:text-[#00A88F]">
                 Partner With Us
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-cei-gold">
+              <Link href="/contact" className="hover:text-[#00A88F]">
                 Book Consultation
               </Link>
             </li>
@@ -67,7 +67,7 @@ export default function Footer() {
           <p className="mb-3 text-xs">
             <a
               href={`mailto:${SITE_CONFIG.contactEmail}`}
-              className="text-cei-gold underline"
+              className="text-[#00A88F] underline"
             >
               {SITE_CONFIG.contactEmail}
             </a>

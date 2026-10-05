@@ -13,7 +13,7 @@ export default function Home() {
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px]" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="mb-4 inline-block rounded-full border border-cei-gold/30 bg-cei-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cei-gold">
+            <p className="mb-4 inline-block rounded-full border border-cei-gold/30 bg-cei-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#00A88F]">
               {INSTITUTION.eyebrow}
             </p>
             <h1 className="mb-6 font-serif text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
@@ -73,7 +73,7 @@ export default function Home() {
           </div>
 
           <aside className="rounded-2xl bg-cei-navy p-8 text-white shadow-xl lg:col-span-5">
-            <h3 className="mb-6 border-b border-white/10 pb-3 font-serif text-xl font-bold text-cei-gold">
+            <h3 className="mb-6 border-b border-white/10 pb-3 font-serif text-xl font-bold text-[#00A88F]">
               Institutional Foundation
             </h3>
             <div className="mb-6">
@@ -88,7 +88,7 @@ export default function Home() {
               <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
                 Business philosophy
               </p>
-              <p className="mt-1 text-lg font-semibold text-cei-gold">
+              <p className="mt-1 text-lg font-semibold text-[#00A88F]">
                 {INSTITUTION.philosophy}
               </p>
             </div>
@@ -165,25 +165,25 @@ export default function Home() {
       <section className="bg-cei-navy py-20 text-white">
         <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div>
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider text-cei-gold">
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider text-[#00A88F]">
               Collaboration
             </p>
             <h2 className="mb-6 font-serif text-3xl font-bold sm:text-4xl">
               Work With the Caribbean Emergence Institute
             </h2>
             <p className="mb-8 leading-relaxed text-slate-300">{INSTITUTION.partnershipIntro}</p>
-            <h3 className="mb-4 text-lg font-semibold text-cei-gold">Partnership pathways</h3>
+            <h3 className="mb-4 text-lg font-semibold text-[#00A88F]">Partnership pathways</h3>
             <ul className="space-y-3">
               {INSTITUTION.partnershipPathways.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm text-slate-200">
-                  <CheckCircle2 size={18} className="shrink-0 text-cei-gold" aria-hidden="true" />
+                  <CheckCircle2 size={18} className="shrink-0 text-[#00A88F]" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
             <Link
               href="/partner"
-              className="mt-8 inline-flex items-center gap-2 font-semibold text-cei-gold hover:underline"
+              className="mt-8 inline-flex items-center gap-2 font-semibold text-[#00A88F] hover:underline"
             >
               Partnership pathways
               <ArrowRight size={16} aria-hidden="true" />

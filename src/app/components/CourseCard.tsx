@@ -14,7 +14,7 @@ export function CourseCard({
       <ul className="mb-6 space-y-1">
         {modules.map((m, i) => (
           <li key={i} className="flex items-start text-sm">
-            <span className="mr-2 text-[#C89B3C]">•</span>
+            <span className="mr-2 text-[#00A88F]">•</span>
             {m}
           </li>
         ))}
