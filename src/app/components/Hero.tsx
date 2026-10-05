@@ -17,7 +17,7 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4">
             <Link
               href="/programs"
-              className="rounded-md bg-[#C89B3C] px-6 py-3 font-semibold text-[#0B1F3B]"
+              className="rounded-md bg-[#00A88F] px-6 py-3 font-semibold text-white transition hover:bg-[#008f7a]"
             >
               Explore Programs
             </Link>

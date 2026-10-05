@@ -44,7 +44,7 @@ export default function FellowshipPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block rounded-md bg-[#C89B3C] px-6 py-3 font-semibold text-[#0B1F3B]"
+            className="inline-block rounded-md bg-[#00A88F] px-6 py-3 font-semibold text-white transition hover:bg-[#008f7a]"
           >
             Express Interest in Fellowship
           </Link>

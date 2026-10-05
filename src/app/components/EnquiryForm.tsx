@@ -157,7 +157,7 @@ export default function EnquiryForm({
 
         <button
           type="submit"
-          className="w-full rounded-lg bg-cei-gold py-3 font-bold text-cei-navy shadow-md transition hover:bg-cei-gold/90"
+          className="w-full rounded-lg bg-[#00A88F] py-3 font-bold text-white shadow-md transition hover:bg-[#008f7a]"
         >
           Submit Enquiry
         </button>
