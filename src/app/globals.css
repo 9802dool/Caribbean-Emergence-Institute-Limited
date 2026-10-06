@@ -5,8 +5,7 @@
   --background: #f7f5f0;
   --foreground: #222222;
   --navy: #0b1f3b;
-  --teal: #1f7a6b;
-  --gold: #c89b3c;
+  --teal: #147266;
 }
 
 @theme inline {
@@ -14,7 +13,6 @@
   --color-foreground: var(--foreground);
   --color-navy: var(--navy);
   --color-teal: var(--teal);
-  --color-gold: var(--gold);
   --font-sans: var(--font-source-sans);
   --font-serif: var(--font-cormorant);
 }
@@ -26,5 +24,5 @@ body {
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--gold) 35%, transparent);
+  background: color-mix(in oklab, var(--teal) 35%, transparent);
 }

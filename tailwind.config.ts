@@ -13,7 +13,6 @@ const config: Config = {
           navy: "#0A2342",
           teal: "#147266",
           terracotta: "#C85A44",
-          gold: "#D4AF37",
           light: "#F8FAFC",
           darkText: "#1E293B",
         },

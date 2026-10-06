@@ -11,7 +11,7 @@ import {
 } from "@/lib/institution";
 
 const inputClass =
-  "w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-cei-navy outline-none transition focus:border-cei-gold focus:ring-2 focus:ring-cei-gold";
+  "w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-cei-navy outline-none transition focus:border-cei-teal focus:ring-2 focus:ring-cei-teal";
 
 export default function EnquiryForm({
   defaultCentre = GENERAL_ENQUIRY,

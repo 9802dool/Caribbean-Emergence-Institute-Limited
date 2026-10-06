@@ -13,7 +13,7 @@ export default function Home() {
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px]" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="mb-4 inline-block rounded-full border border-cei-gold/30 bg-cei-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#00A88F]">
+            <p className="mb-4 inline-block rounded-full border border-cei-teal/30 bg-cei-teal/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#00A88F]">
               {INSTITUTION.eyebrow}
             </p>
             <h1 className="mb-6 font-serif text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
@@ -60,7 +60,7 @@ export default function Home() {
               {INSTITUTION.aboutLead}
             </p>
             <p className="mb-6 leading-relaxed text-slate-600">{INSTITUTION.aboutBody}</p>
-            <blockquote className="mb-6 border-l-4 border-cei-gold bg-slate-50 p-4 text-slate-700">
+            <blockquote className="mb-6 border-l-4 border-cei-teal bg-slate-50 p-4 text-slate-700">
               {INSTITUTION.centresStatement}
             </blockquote>
             <Link

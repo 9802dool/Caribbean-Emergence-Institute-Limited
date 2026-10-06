@@ -8,8 +8,8 @@ export default function FounderLegacy({
   const Heading = headingLevel;
 
   return (
-    <article className="relative overflow-hidden rounded-2xl border-l-8 border-cei-gold bg-cei-navy p-8 text-white shadow-xl lg:p-12">
-      <p className="mb-3 inline-block rounded bg-cei-gold/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#00A88F]">
+    <article className="relative overflow-hidden rounded-2xl border-l-8 border-cei-teal bg-cei-navy p-8 text-white shadow-xl lg:p-12">
+      <p className="mb-3 inline-block rounded bg-cei-teal/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#00A88F]">
         Founder Legacy
       </p>
       <Heading className="font-serif text-3xl font-bold">{FOUNDER.name}</Heading>

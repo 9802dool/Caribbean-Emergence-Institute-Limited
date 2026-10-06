@@ -27,7 +27,7 @@ export default function AboutPage() {
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <p className="text-lg leading-relaxed text-slate-700">{INSTITUTION.aboutBody}</p>
-            <blockquote className="mt-8 border-l-4 border-cei-gold bg-white p-6 text-slate-700 shadow-sm">
+            <blockquote className="mt-8 border-l-4 border-cei-teal bg-white p-6 text-slate-700 shadow-sm">
               {INSTITUTION.centresStatement}
             </blockquote>
           </div>
